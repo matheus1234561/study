@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                         // Defina a versão de JS de saída (padrão: ES5)
+    "module": "CommonJS",                       // Para suportar Node.js
+    "strict": true,                             // Habilita verificações mais rigorosas
+    "esModuleInterop": true,                    // Permite importar módulos CommonJS de forma mais fácil
+    "skipLibCheck": true,                       // Ignora verificação de tipos em arquivos de biblioteca
+    "forceConsistentCasingInFileNames": true,   // Garante nomes de arquivos consistentes
+    "outDir": "./dist",                         // Pasta de saída para os arquivos compilados
+    "rootDir": "./src",                         // Pasta raiz do código fonte
+    "baseUrl": ".",                             // Diretório base para imports relativos
+    "resolveJsonModule": true,                  // Permite importar arquivos .json
+    "typeRoots": ["./node_modules/@types"],     // Caminho para os tipos
+    "types": ["node", "express"]                // Tipos que você deseja usar (se estiver usando express)
+  },
+  "include": ["src/**/*.ts"],                   // Inclui todos os arquivos TypeScript da pasta src
+  "exclude": ["node_modules"]                   // Exclui a pasta node_modules
+}
