@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import "./home.css";
+import home from "./home.module.css";
 import { useNavigate } from "react-router-dom";
 import { UserRoutes } from "../../user/constants/routes";
 
@@ -11,7 +11,7 @@ export const Home = () => {
   };
 
   return (
-    <Box className="div-page">
+    <Box className={home['div-page']}>
       <Typography className="typography-title" variant="h2">
         Home Page
       </Typography>
