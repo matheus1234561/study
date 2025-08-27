@@ -1,13 +1,6 @@
 import { Request, Response } from "express";
 import * as userModel from "../models/userModel";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  password?: string;
-  dateCreated?: string;
-}
+import { User } from "src/shared/interfaces/user";
 
 const getAllUsers = async (req: Request, res: Response): Promise<void> => {
   try {
