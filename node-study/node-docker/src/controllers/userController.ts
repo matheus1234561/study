@@ -25,9 +25,9 @@ const getUserById = async (req: Request, res: Response): Promise<void> => {
 };
 
 const createUser = async (req: Request, res: Response): Promise<void> => {
-  const { name, email, password, dateCreated }: { name: string; email: string, password: string, dateCreated: string } = req.body;
+  const { name, email, password}: { name: string; email: string, password: string} = req.body;
   try {
-    const newUser: User = await userModel.createUser(name, email, password, dateCreated);
+    const newUser: User = await userModel.createUser(name, email, password);
     res.status(201).json(newUser);
   } catch (err) {
     res.status(500).json({ message: "Erro ao criar usuário" });
