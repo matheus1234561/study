@@ -24,8 +24,6 @@ export const Login = () => {
       });
       const token = response.data.token;
 
-      console.log(token);
-
       localStorage.setItem("Token", token);
 
       return response.data;
