@@ -27,7 +27,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     })
     
     res.header("Authorization", token);
-    res.status(200).json({ message: "Login bem-sucedido"});
+    res.status(200).json({ message: "Login bem-sucedido", token: token});
   } catch (err) {
     res.status(500).json({ message: err });
   }

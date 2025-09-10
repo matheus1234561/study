@@ -1,0 +1,21 @@
+.div-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+}
+
+.div-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.typography-title {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: 'Times New Roman', Times, serif;
+}
