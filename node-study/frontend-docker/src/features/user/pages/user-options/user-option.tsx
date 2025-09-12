@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { UserRoutes } from "../../constants/routes";
+import { PageContent } from "../../../../shared/components/PageContent/page-content";
 
 export const UserOptions = () => {
   const navigate = useNavigate();
@@ -9,8 +10,7 @@ export const UserOptions = () => {
     navigate(UserRoutes.listUsers, { replace: true });
   };
   return (
-    <Box className="div-page">
-      <Typography variant="h2">User Options</Typography>
+    <PageContent title="Opções do Usuário">
       <Box className="div-buttons">
         <Box className="click-buttons">
           <Button variant="contained" onClick={goToListUsers}>
@@ -18,6 +18,6 @@ export const UserOptions = () => {
           </Button>
         </Box>
       </Box>
-    </Box>
+    </PageContent>
   );
 };

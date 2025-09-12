@@ -1,6 +1,8 @@
 import { Box, Button, Typography } from "@mui/material";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import apiClient from "../../../../config/api";
+import { PageContent } from "../../../../shared/components/PageContent/page-content";
+import { DateFormatter } from "../../../../shared/utils/formatter";
 
 interface User {
   id: number;
@@ -24,8 +26,7 @@ export const ListUser = () => {
   };
 
   return (
-    <Box className="div-page">
-      <Typography variant="h2"> List Users</Typography>
+    <PageContent title="Lista de Usuários">
       <Box className="div-buttons">
         <Box className="click-buttons">
           <Button variant="contained" onClick={getUsers}>
@@ -48,7 +49,7 @@ export const ListUser = () => {
               <Typography variant="h6">Name: {user.name}</Typography>
               <Typography variant="body1">Email: {user.email}</Typography>
               <Typography variant="body2" color="textSecondary">
-                Created at: {user.created_at}
+                Created at: {DateFormatter(user.created_at)}
               </Typography>
             </Box>
           ))
@@ -56,6 +57,6 @@ export const ListUser = () => {
           <Typography variant="body1">No users available.</Typography>
         )}
       </Box>
-    </Box>
+    </PageContent>
   );
 };
