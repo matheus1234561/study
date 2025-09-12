@@ -17,7 +17,9 @@ export const ListUser = () => {
 
   const getUsers = async (): Promise<void> => {
     try {
-      const response = await apiClient.get("/api/users");
+      const response = await apiClient.get("/api/users", {
+        headers: { Authorization: localStorage.getItem("Token") || "" },
+      });
       setUsers(response.data);
       return response.data;
     } catch (error) {

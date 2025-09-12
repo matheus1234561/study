@@ -21,7 +21,7 @@ export const Login = () => {
 
   const makeLogin = async (): Promise<void> => {
     try {
-      const response = await apiClient.post("/api/login", {
+      const response = await apiClient.post("/login", {
         email: email,
         password: password,
       });
