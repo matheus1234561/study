@@ -3,10 +3,13 @@ import { PageContent } from "../../../shared/components/PageContent/page-content
 import loginStyle from "./login.module.css";
 import { useState } from "react";
 import apiClient from "../../../config/api";
+import { useNavigate } from "react-router-dom";
+import { HomeRoutes } from "../../home/constants/routes";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -25,6 +28,8 @@ export const Login = () => {
       const token = response.data.token;
 
       localStorage.setItem("Token", token);
+      
+      navigate(HomeRoutes.home)
 
       return response.data;
     } catch (error) {
@@ -43,7 +48,7 @@ export const Login = () => {
             variant="outlined"
             type="text"
             size="small"
-            label="Nome de usuário"
+            label="Email"
             value={email || ""}
             onChange={handleEmail}
             className={loginStyle["div-solo-button"]}

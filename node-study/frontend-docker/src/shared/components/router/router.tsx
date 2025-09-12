@@ -6,14 +6,21 @@ import { Login } from "../../../features/auth/pages/login";
 import { ProtectedRoute } from "../ProtectedRoute/protected-route";
 
 export const Pages = () => {
+  const protectedRoute = [
+    { path: "/home", component: <Home /> },
+    { path: "/user-options", component: <UserOptions /> },
+    { path: "/list-users", component: <ListUser /> },
+  ];
   return (
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route element={<ProtectedRoute />}>
-        <Route path="/home" element={<Home />} />
-        <Route path="/user-options" element={<UserOptions />} />
-        <Route path="/list-users" element={<ListUser />} />
-      </Route>
+      {protectedRoute.map(({ path, component }) => (
+        <Route
+          key={path}
+          path={path}
+          element={<ProtectedRoute>{component}</ProtectedRoute>}
+        />
+      ))}
     </Routes>
   );
 };

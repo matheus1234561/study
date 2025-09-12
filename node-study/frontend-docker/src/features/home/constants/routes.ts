@@ -1,3 +1,3 @@
-export const UserRoutes = {
+export const HomeRoutes = {
     home: "/home",
 }
