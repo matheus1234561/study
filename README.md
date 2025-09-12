@@ -5,8 +5,8 @@ O repositório consiste em um CRUD simples em Node no backend e React com TypeSc
 Ele possui:
 - Listagem
 - Edição
-- Criação
-- Edição de usuários
+- Delete
+- Edição
 
 Além de possuir um login com autenticação JWT.
 
