@@ -1,23 +1,40 @@
-import db from '../config/db'; 
-import bcrypt from 'bcryptjs';
+import db from "../config/db";
+import bcrypt from "bcryptjs";
 
 export const getAllUsers = async () => {
-  const result = await db.query("SELECT * FROM users");
-  return result.rows;
+  try {
+    const result = await db.query("SELECT * FROM users");
+    return result.rows;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getUserById = async (id: number) => {
-  const result = await db.query("SELECT * FROM users WHERE id = $1", [id]);
-  return result.rows[0];
+  try {
+    const result = await db.query("SELECT * FROM users WHERE id = $1", [id]);
+    return result.rows[0];
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getUserMail = async (mail: string) => {
-  const result = await db.query("SELECT * FROM users WHERE email = $1", [mail]);
-  return result.rows[0];
+  try {
+    const result = await db.query("SELECT * FROM users WHERE email = $1", [
+      mail,
+    ]);
+    return result.rows[0];
+  } catch (error) {
+    throw error;
+  }
 };
 
-export const createUser = async (name: string, email: string, password:string) => {
-
+export const createUser = async (
+  name: string,
+  email: string,
+  password: string
+) => {
   const hash = bcrypt.genSaltSync(10);
   const hashPassword = await bcrypt.hash(password, hash);
 
@@ -28,9 +45,8 @@ export const createUser = async (name: string, email: string, password:string) =
     );
 
     return result.rows[0];
-
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -55,5 +71,5 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
-  getUserMail
+  getUserMail,
 };
