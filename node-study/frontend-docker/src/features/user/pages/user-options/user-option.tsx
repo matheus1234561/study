@@ -1,7 +1,8 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { UserRoutes } from "../../constants/routes";
 import { PageContent } from "../../../../shared/components/PageContent/page-content";
+import userOptionStyles from "./user-option.module.css";
 
 export const UserOptions = () => {
   const navigate = useNavigate();
@@ -16,8 +17,8 @@ export const UserOptions = () => {
 
   return (
     <PageContent title="Opções do Usuário">
-      <Box className="div-buttons">
-        <Box className="click-buttons">
+      <Box className={userOptionStyles["div-form"]}>
+        <Box className={userOptionStyles["div-buttons"]}>
           <Button variant="contained" onClick={goToListUsers}>
             List users
           </Button>

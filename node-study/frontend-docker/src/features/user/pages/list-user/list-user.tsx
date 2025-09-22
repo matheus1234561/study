@@ -44,7 +44,7 @@ export const ListUser = () => {
               <Typography variant="h6">Name: {user.name}</Typography>
               <Typography variant="body1">Email: {user.email}</Typography>
               <Typography variant="body2" color="textSecondary">
-                Created at: {DateFormatter(user.created_at)}
+                BirthDate: {DateFormatter(user.created_at)}
               </Typography>
             </Box>
           ))
