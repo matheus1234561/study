@@ -2,9 +2,9 @@ import { Box, Button, TextField } from "@mui/material";
 import { PageContent } from "../../../shared/components/PageContent/page-content";
 import loginStyle from "./login.module.css";
 import { useState } from "react";
-import apiClient from "../../../config/api";
 import { useNavigate } from "react-router-dom";
 import { HomeRoutes } from "../../home/constants/routes";
+import { makeLogin } from "../../../service/auth-service";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,22 +19,10 @@ export const Login = () => {
     setPassword(event.target.value);
   };
 
-  const makeLogin = async (): Promise<void> => {
-    try {
-      const response = await apiClient.post("/login", {
-        email: email,
-        password: password,
-      });
-      const token = response.data.token;
-
-      localStorage.setItem("Token", token);
-      
-      navigate(HomeRoutes.home)
-
-      return response.data;
-    } catch (error) {
-      console.error("Error during login:", error);
-    }
+  const login = () => {
+    makeLogin(email, password).then(() => {
+      navigate(HomeRoutes.home);
+    });
   };
 
   return (
@@ -65,7 +53,7 @@ export const Login = () => {
             margin="normal"
           ></TextField>
         </Box>
-        <Button onClick={makeLogin} variant="contained">
+        <Button onClick={login} variant="contained">
           Fazer login
         </Button>
       </Box>

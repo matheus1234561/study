@@ -2,7 +2,7 @@ import { Box, Button, TextField } from "@mui/material";
 import { PageContent } from "../../../../shared/components/PageContent/page-content";
 import { useState } from "react";
 import addUserStyle from "./add-user.module.css";
-import apiClient from "../../../../config/api";
+import { addUser } from "../../../../service/user-service";
 
 export const AddUser = () => {
   const [name, setName] = useState("");
@@ -21,19 +21,8 @@ export const AddUser = () => {
     setPassword(event.target.value);
   };
 
-  const addUser = async (): Promise<void> => {
-    try {
-      const response = await apiClient.post(
-        "/api/users",
-        { name: name, email: email, password: password },
-        {
-          headers: { Authorization: localStorage.getItem("Token") || "" },
-        }
-      );
-      return response.data;
-    } catch (error) {
-      console.error("Error fetching users:", error);
-    }
+  const add = () => {
+    addUser(name, email, password);
   };
 
   return (
@@ -71,7 +60,7 @@ export const AddUser = () => {
             margin="normal"
           ></TextField>
         </Box>
-        <Button onClick={addUser} variant="contained">
+        <Button onClick={add} variant="contained">
           Adicionar usuário
         </Button>
       </Box>
