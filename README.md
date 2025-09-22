@@ -6,7 +6,7 @@ Ele possui:
 - Listagem
 - Edição
 - Delete
-- Edição
+- Adição
 
 Além de possuir um login com autenticação JWT.
 
