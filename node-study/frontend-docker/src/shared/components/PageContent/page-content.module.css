@@ -19,3 +19,12 @@
   font-weight: 700;
   font-family: 'Times New Roman', Times, serif;
 }
+
+.div-header{
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  color: #000000;
+}
