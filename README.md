@@ -1,20 +1,20 @@
-# Objetivo
+# Objective
 
-O repositório consiste em um CRUD simples em Node no backend e React com TypeScript no frontend. Ele também utiliza Docker, onde terá um arquivo para geração de imagem.
+The repository consists of a simple CRUD in Node for the backend and React with TypeScript for the frontend. It also uses Docker, where there will be a file to generate the image.
 
-Ele possui:
-- Listagem
-- Edição
-- Delete
-- Adição
+It has:
+- Listing
+- Editing
+- Deleting
+- Adding
 
-Além de possuir um login com autenticação JWT.
+In addition to having a login with JWT authentication.
 
-## Como rodar?
+## How to run?
 
-Para rodar o projeto:
-1. Crie um fork do repositório.
-2. Aplique `yarn` para instalar as dependências no frontend e no backend.
-3. Navegue para as pastas:
+To run the project:
+1. Create a fork of the repository.
+2. Run `yarn` to install the dependencies for both the frontend and the backend.
+3. Navigate to the folders:
    - `cd frontend-docker`
    - `cd node-docker`
