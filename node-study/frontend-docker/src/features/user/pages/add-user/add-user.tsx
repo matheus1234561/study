@@ -26,7 +26,7 @@ export const AddUser = () => {
   };
 
   return (
-    <PageContent title="Add User">
+    <PageContent title="Add User" haveGoBack={true}>
       <Box className={addUserStyle["div-form"]}>
         <Box className={addUserStyle["div-buttons"]}>
           <TextField

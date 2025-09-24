@@ -28,3 +28,9 @@
 .icon {
   color: #000000;
 }
+
+.div-title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

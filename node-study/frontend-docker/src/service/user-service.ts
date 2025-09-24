@@ -27,6 +27,20 @@ export const addUser = async (
     );
     return response.data;
   } catch (error) {
-    console.error("Error fetching users:", error);
+    console.error("Error adding user:", error);
   }
 };
+
+export const deleteUser = async (id: number): Promise<void>=>{
+  try {
+    const response = await apiClient.delete(
+      `/api/users/${id}`,
+      {
+        headers: { Authorization: localStorage.getItem("Token") || "" },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error deleting user:", error);
+  }
+}

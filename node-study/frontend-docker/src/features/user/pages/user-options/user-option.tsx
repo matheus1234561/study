@@ -16,7 +16,7 @@ export const UserOptions = () => {
   };
 
   return (
-    <PageContent title="Opções do Usuário">
+    <PageContent title="Opções do Usuário" haveGoBack={true}>
       <Box className={userOptionStyles["div-form"]}>
         <Box className={userOptionStyles["div-buttons"]}>
           <Button variant="contained" onClick={goToListUsers}>

@@ -25,7 +25,11 @@ const getUserById = async (req: Request, res: Response): Promise<void> => {
 };
 
 const createUser = async (req: Request, res: Response): Promise<void> => {
-  const { name, email, password}: { name: string; email: string, password: string} = req.body;
+  const {
+    name,
+    email,
+    password,
+  }: { name: string; email: string; password: string } = req.body;
   try {
     const newUser: User = await userModel.createUser(name, email, password);
     res.status(201).json(newUser);
@@ -34,4 +38,25 @@ const createUser = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-export { getAllUsers, getUserById, createUser };
+const deleteUser = async (req: Request, res: Response): Promise<void> => {
+  const userId: number = parseInt(req.params.id);
+  try {
+    await userModel.deleteUser(userId);
+    res.status(202).json({ message: "Usuário deletado!" });
+  } catch (err) {
+    res.status(500).json({ message: "Erro ao deletar usuário" });
+  }
+};
+
+const updateUser = async (req: Request, res: Response): Promise<void> => {
+  const { id, name, email }: { id: number; name: string; email: string } =
+    req.body;
+  try {
+    const update: User = await userModel.updateUser(id, name, email);
+    res.status(204).json(update);
+  } catch (err) {
+    res.status(500).json({ message: "Erro ao atualizar o usuário" });
+  }
+};
+
+export { getAllUsers, getUserById, createUser, deleteUser, updateUser };
