@@ -31,16 +31,32 @@ export const addUser = async (
   }
 };
 
-export const deleteUser = async (id: number): Promise<void>=>{
+export const deleteUser = async (id: number): Promise<void> => {
   try {
-    const response = await apiClient.delete(
-      `/api/users/${id}`,
+    const response = await apiClient.delete(`/api/users/${id}`, {
+      headers: { Authorization: localStorage.getItem("Token") || "" },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error deleting user:", error);
+  }
+};
+
+export const updateUser = async (
+  id: number,
+  name: string,
+  email: string
+): Promise<void> => {
+  try {
+    const response = await apiClient.put(
+      "/api/users",
+      { id: id, name: name, email: email },
       {
         headers: { Authorization: localStorage.getItem("Token") || "" },
       }
     );
     return response.data;
   } catch (error) {
-    console.error("Error deleting user:", error);
+    console.error("Error editing user:", error);
   }
-}
+};
