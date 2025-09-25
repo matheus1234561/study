@@ -5,13 +5,15 @@ import { ListUser } from "../../../features/user/pages/list-user/list-user";
 import { Login } from "../../../features/auth/pages/login";
 import { ProtectedRoute } from "../ProtectedRoute/protected-route";
 import { AddUser } from "../../../features/user/pages/add-user/add-user";
+import { EditUser } from "../../../features/user/pages/edit-user/edit-user";
 
 export const Pages = () => {
   const protectedRoute = [
     { path: "/home", component: <Home /> },
     { path: "/user-options", component: <UserOptions /> },
     { path: "/list-users", component: <ListUser /> },
-    { path: "/add-user", component: <AddUser/>}
+    { path: "/add-user", component: <AddUser /> },
+    { path: "/edit-user", component: <EditUser /> },
   ];
   return (
     <Routes>

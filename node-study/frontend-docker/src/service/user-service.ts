@@ -43,9 +43,9 @@ export const deleteUser = async (id: number): Promise<void> => {
 };
 
 export const updateUser = async (
-  id: number,
-  name: string,
-  email: string
+  id: number | null,
+  name?: string | null,
+  email?: string | null
 ): Promise<void> => {
   try {
     const response = await apiClient.put(

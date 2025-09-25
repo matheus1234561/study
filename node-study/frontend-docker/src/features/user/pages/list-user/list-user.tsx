@@ -1,17 +1,18 @@
 import { Box, Button, IconButton, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PageContent } from "../../../../shared/components/PageContent/page-content";
 import { DateFormatter } from "../../../../shared/utils/formatter";
 import { User } from "../../../../shared/models/user-model";
 import { deleteUser, getUsers } from "../../../../service/user-service";
 import { Delete, Edit } from "@mui/icons-material";
 import listUserStyle from "./list-user.module.css";
+import { useNavigate } from "react-router-dom";
+import { UserRoutes } from "../../constants/routes";
 
 export const ListUser = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-
-  console.log(loading);
+  const navigate = useNavigate();
 
   const listUser = () => {
     const user = getUsers();
@@ -31,6 +32,14 @@ export const ListUser = () => {
       setLoading(false);
       listUser();
     });
+  };
+
+  const userUpdate = (id: number, name: string, email: string) => {
+    localStorage.setItem("id", id.toString());
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+
+    navigate(UserRoutes.editUsers);
   };
 
   return (
@@ -55,7 +64,9 @@ export const ListUser = () => {
                 </Typography>
               </Box>
               <Box className={listUserStyle["icon-box"]}>
-                <IconButton>
+                <IconButton
+                  onClick={() => userUpdate(user.id, user.name, user.email)}
+                >
                   <Edit />
                 </IconButton>
                 <IconButton onClick={() => userDelete(user.id)}>

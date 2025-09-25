@@ -1,6 +1,7 @@
 export const UserRoutes = {
-    userOptions: "/user-options",
-    addUser: "/add-user",
-    listUsers: "/list-users",
-    addUsers: "/add-user"
-}
+  userOptions: "/user-options",
+  addUser: "/add-user",
+  listUsers: "/list-users",
+  addUsers: "/add-user",
+  editUsers: "/edit-user",
+};
